@@ -1,69 +1,11 @@
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diario Las Mentiras</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>Diario Las Mentiras</h1>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Internacional</a></li>
-                <li><a href="#">Deportes</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Tecnología</a></li>
-            </ul>
-            <div class="hamburger-menu">☰</div>
-        </nav>
-    </header>
-    <main>
-        <section class="main-news">
-            <article class="news-item">
-                <img src="https://cdn.eldestapeweb.com/eldestape/042022/1651274230188.webp?cw=770&ch=440&extw=jpg" alt="Noticia Principal 1">
-                <h2><a href="#">¡Nuevos descubrimientos en el espacio!</a></h2>
-                <p>Investigadores de la NASA han anunciado hallazgos sorprendentes sobre la vida extraterrestre, Ademas de descubrir restos de una de sus naves </p>
-                <p> Este 2023 este avanzado telescopio espacial cumplió un año operativo en el espacio, ofreciendo imágenes impresionantes y científicamente valiosas del universo. 
-                Aquí repasamos los descubrimientos, los avances científicos y las fotografías más destacadas del mayor instrumento de observación de la NASA</p>
-            </article>
-        </section>
-        <section class="secondary-news">
-            <article class="news-item">
-                <h3><a href="#">Increíble avance médico para combatir el cáncer</a></h3>
-                <img src="https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/marketing/global/images/applications/research-and-disease-areas/cancer-research/cancer-research.png" alt="Avance Médico">
-                <p>Científicos encuentran una nueva terapia que promete revolucionar el tratamiento contra el cáncer.
-                    Un equipo de científicos del Centro de Investigación en Medicina Molecular (CiMUS) de la Universidade de Santiago de Compostela (USC) ha desarrollado una nueva terapia contra el cáncer anaplásico de tiroides (CAT),
-                 un tipo tan raro como agresivo. Apenas existen tratamientos disponibles en la actualidad, por lo que este avance de la medicina abre la puerta a la esperanza de la curación de una enfermedad cuya tasa de supervivencia de cinco años es de apenas el 5%
-                </p>
-            </article>
-            <article class="news-item">
-                <h3><a href="#">Innovaciones tecnológicas en la energía solar</a></h3>
-                <img src="https://epre.gov.ar/web/wp-content/uploads/2017/03/original.jpg" alt="Innovaciones en Energía Solar">
-                <p>Un nuevo panel solar desarrollado por investigadores promete ser un 50% más eficiente que los modelos actuales.</p>
-                
-            </article>
-        </section>
-    </main>
-    <aside class="advertisements">
-        <div class="ad">Publicidad 1</div>
-        <img src="https://tpc.googlesyndication.com/simgad/5815204325481002530" alt="Publicidad 1">
-        <div class="ad">Publicidad 2</div>
-        <img src="https://cdn.flashtalking.com/197082/4707326/LVCafeMorenita728X90.jpeg?385977816" alt="Publicidad 2">
-    </aside>
-</body>
-</html>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suscripción - Diario Las Mentiras</title>
+    <title>Diario Las Mentiras</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Normalize.css">
 </head>
 <body>
     <header>
@@ -83,69 +25,35 @@
         </nav>
     </header>
     <main>
-        <section class="subscription-section">
-            <h2 id="form-title-display">Formulario de Suscripción</h2>
-            <form id="subscription-form">
-               
-                <div class="form-group">
-                    <label for="full-name">Nombre Completo</label>
-                    <input type="text" id="full-name" name="full-name">
-                    <small class="error-message" id="error-full-name"></small>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
-                    <small class="error-message" id="error-email"></small>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password">
-                    <small class="error-message" id="error-password"></small>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Repetir Contraseña</label>
-                    <input type="password" id="confirm-password" name="confirm-password">
-                    <small class="error-message" id="error-confirm-password"></small>
-                </div>
-                <div class="form-group">
-                    <label for="age">Edad</label>
-                    <input type="number" id="age" name="age">
-                    <small class="error-message" id="error-age"></small>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Teléfono</label>
-                    <input type="text" id="phone" name="phone">
-                    <small class="error-message" id="error-phone"></small>
-                </div>
-                <div class="form-group">
-                    <label for="address">Dirección</label>
-                    <input type="text" id="address" name="address">
-                    <small class="error-message" id="error-address"></small>
-                </div>
-                <div class="form-group">
-                    <label for="city">Ciudad</label>
-                    <input type="text" id="city" name="city">
-                    <small class="error-message" id="error-city"></small>
-                </div>
-                <div class="form-group">
-                    <label for="postal-code">Código Postal</label>
-                    <input type="text" id="postal-code" name="postal-code">
-                    <small class="error-message" id="error-postal-code"></small>
-                </div>
-                <div class="form-group">
-                    <label for="dni">DNI</label>
-                    <input type="text" id="dni" name="dni">
-                    <small class="error-message" id="error-dni"></small>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
+        <section class="main-news">
+            <article class="news-item">
+                <img src="https://cdn.eldestapeweb.com/eldestape/042022/1651274230188.webp?cw=770&ch=440&extw=jpg" alt="Noticia Principal 1">
+                <h2><a href="#">¡Nuevos descubrimientos en el espacio!</a></h2>
+                <p>Investigadores de la NASA han anunciado hallazgos sorprendentes sobre la vida extraterrestre, además de descubrir restos de una de sus naves.</p>
+                <p>Este 2023, este avanzado telescopio espacial cumplió un año operativo en el espacio, ofreciendo imágenes impresionantes y científicamente valiosas del universo. Aquí repasamos los descubrimientos, los avances científicos y las fotografías más destacadas del mayor instrumento de observación de la NASA.</p>
+            </article>
+        </section>
+        <section class="secondary-news">
+            <article class="news-item">
+                <h3><a href="#">Increíble avance médico para combatir el cáncer</a></h3>
+                <img src="https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/marketing/global/images/applications/research-and-disease-areas/cancer-research/cancer-research.png" alt="Avance Médico">
+                <p>Científicos encuentran una nueva terapia que promete revolucionar el tratamiento contra el cáncer. Un equipo de científicos del Centro de Investigación en Medicina Molecular (CiMUS) de la Universidade de Santiago de Compostela (USC) ha desarrollado una nueva terapia contra el cáncer anaplásico de tiroides (CAT), un tipo tan raro como agresivo. Apenas existen tratamientos disponibles en la actualidad, por lo que este avance de la medicina abre la puerta a la esperanza de la curación de una enfermedad cuya tasa de supervivencia de cinco años es de apenas el 5%.</p>
+            </article>
+            <article class="news-item">
+                <h3><a href="#">Innovaciones tecnológicas en la energía solar</a></h3>
+                <img src="https://epre.gov.ar/web/wp-content/uploads/2017/03/original.jpg" alt="Innovaciones en Energía Solar">
+                <p>Un nuevo panel solar desarrollado por investigadores promete ser un 50% más eficiente que los modelos actuales.</p>
+            </article>
         </section>
     </main>
+    <aside class="advertisements">
+        <div class="ad">Publicidad 1</div>
+        <img src="https://tpc.googlesyndication.com/simgad/5815204325481002530" alt="Publicidad 1">
+        <div class="ad">Publicidad 2</div>
+        <img src="https://cdn.flashtalking.com/197082/4707326/LVCafeMorenita728X90.jpeg?385977816" alt="Publicidad 2">
+    </aside>
     <footer>
-        <p>&copy; 2024 Diario Las Mentiras. Todos los derechos reservados .</p>
-        <p>&copy; hasta luego  gracias .</p>
+        <p>&copy; 2024 Diario Las Mentiras. Todos los derechos reservados.</p>
     </footer>
     <script src="scripts.js"></script>
 </body>
