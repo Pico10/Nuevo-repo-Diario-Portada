@@ -1,58 +1,57 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscription-form');
-    const fields = form.querySelectorAll('input');
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modal-message');
+    const closeModalButton = document.getElementById('close-modal');
 
-    const validationRules = {
-        'full-name': value => value.length > 6 && /\s/.test(value) ? '' : 'Debe tener más de 6 letras y al menos un espacio.',
-        'email': value => /\S+@\S+\.\S+/.test(value) ? '' : 'Formato de email no válido.',
-        'password': value => value.length >= 8 && /\d/.test(value) ? '' : 'Debe tener al menos 8 caracteres, con letras y números.',
-        'confirm-password': value => value === document.getElementById('password').value ? '' : 'Las contraseñas no coinciden.',
-        'age': value => Number.isInteger(parseInt(value)) && value >= 18 ? '' : 'Debe ser un número entero mayor o igual a 18.',
-        'phone': value => /^\d{7,}$/.test(value) ? '' : 'Debe ser un número de al menos 7 dígitos sin espacios, guiones ni paréntesis.',
-        'address': value => value.length >= 5 && /\s/.test(value) ? '' : 'Debe tener al menos 5 caracteres, con letras, números y un espacio.',
-        'city': value => value.length >= 3 ? '' : 'Debe tener al menos 3 caracteres.',
-        'postal-code': value => value.length >= 3 ? '' : 'Debe tener al menos 3 caracteres.',
-        'dni': value => /^\d{7,8}$/.test(value) ? '' : 'Debe ser un número de 7 u 8 dígitos.'
-    };
-
-    fields.forEach(field => {
-        field.addEventListener('blur', validateField);
-        field.addEventListener('focus', clearError);
-    });
-
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
-        let allValid = true;
-        fields.forEach(field => {
-            if (!validateField({ target: field })) {
-                allValid = false;
-            }
-        });
 
-        if (allValid) {
-            const formData = Array.from(fields).map(field => `${field.name}: ${field.value}`).join('\n');
-            alert(`Formulario enviado con éxito:\n\n${formData}`);
-        } else {
-            alert('Corrige los errores en el formulario.');
+        if (validateForm()) {
+            const formData = new FormData(form);
+            const queryParams = new URLSearchParams(formData).toString();
+            const url = `https://jsonplaceholder.typicode.com/users?${queryParams}`;
+
+            fetch(url, { method: 'GET' })
+                .then(response => response.json())
+                .then(data => handleSuccess(data, queryParams))
+                .catch(error => handleError(error));
         }
     });
 
-    function validateField(event) {
-        const field = event.target;
-        const error = validationRules[field.id](field.value);
-        const errorElement = document.getElementById(`error-${field.id}`);
-        if (error) {
-            errorElement.innerText = error;
-            return false;
-        } else {
-            errorElement.innerText = '';
-            return true;
-        }
-    }
+    closeModalButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-    function clearError(event) {
-        const field = event.target;
-        const errorElement = document.getElementById(`error-${field.id}`);
-        errorElement.innerText = '';
-    }
+    window.onload = () => {
+        const savedData = localStorage.getItem('formData');
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            for (const [key, value] of Object.entries(formData)) {
+                const input = document.querySelector(`[name=${key}]`);
+                if (input) input.value = value;
+            }
+        }
+    };
 });
+
+function validateForm() {
+    // Implementa tus validaciones de formulario aquí
+    return true; // Retornar true si todas las validaciones pasan
+}
+
+function handleSuccess(data, queryParams) {
+    localStorage.setItem('formData', JSON.stringify(data));
+    showModal(`Datos recibidos: ["Suscripción exitosa! Datos enviados: ${queryParams}"]`);
+}
+
+function handleError(error) {
+    showModal(`Error en la suscripción: ${error}`);
+}
+
+function showModal(message) {
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modal-message');
+    modalMessage.innerText = message;
+    modal.style.display = 'block';
+}
